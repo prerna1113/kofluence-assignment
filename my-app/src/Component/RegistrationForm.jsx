@@ -4,7 +4,9 @@ import React from 'react'
 import { Box, Button, Input, TextField, Typography } from '@mui/material'
 import styles from './CSS/Registration.module.css'
 import { useState, useEffect } from 'react';
-import { ClassNames } from '@emotion/react';
+import { useNavigate } from 'react-router-dom';
+
+
 
 function RegistrationForm() {
   const initialvalues = {
@@ -20,6 +22,10 @@ function RegistrationForm() {
 
   const [formErrors, setFormErrors] = useState({})
   const [isSubmit, setIsSubmit] = useState(false)
+
+  const navigate= useNavigate();
+
+  
 
 
   const handleChange = (e) => {
@@ -42,6 +48,8 @@ function RegistrationForm() {
     }
 
   }, [formErrors]);
+
+ 
 
   const validate = (name) => {
     const errors = {}
@@ -77,9 +85,9 @@ function RegistrationForm() {
 
 
      localStorage.setItem('registrationData', JSON.stringify(inputs));
-     
 
-    
+     
+     
 
     return errors;
   }
@@ -100,6 +108,7 @@ function RegistrationForm() {
       <Box
 
       >
+         
 
           <Typography
             sx={{
@@ -109,6 +118,7 @@ function RegistrationForm() {
           >Registration Form
           </Typography>
 
+         
           <TextField
             sx={{
               textAlign: "start",
@@ -246,10 +256,13 @@ function RegistrationForm() {
               marginBottom:"25px",
               width: "250px"
             }}
+            // onClick={()=> navigate("/loginForm")}
+            onClick={handleSubmit}
 
             variant="contained"
-            onClick={handleSubmit}
+            
           >Register</Button>
+        
 
 
        
