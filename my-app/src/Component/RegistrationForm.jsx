@@ -25,7 +25,7 @@ function RegistrationForm() {
   const handleChange = (e) => {
     const { name, value } = e.target
     setInputs({ ...inputs, [name]: value });
-    console.log(inputs);
+    
   }
 
   const handleSubmit = (e) => {
@@ -38,7 +38,7 @@ function RegistrationForm() {
   useEffect(() => {
     console.log(formErrors);
     if (Object.keys(formErrors).lenght === 0 && isSubmit) {
-      console.log(inputs)
+      
     }
 
   }, [formErrors]);
@@ -75,10 +75,16 @@ function RegistrationForm() {
       errors.address= "Address is required";
      }
 
+
+     localStorage.setItem('registrationData', JSON.stringify(inputs));
+     
+
     
 
     return errors;
   }
+
+  
 
 
   return (
