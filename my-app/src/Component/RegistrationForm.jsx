@@ -1,10 +1,11 @@
 
 
 import React from 'react'
-import { Box, Button, Input, TextField, Typography } from '@mui/material'
+import { Box, Button, FormControl, Input,TextField,Typography } from '@mui/material'
 import styles from './CSS/Registration.module.css'
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import LoginForm from './Form/LoginForm';
 
 
 
@@ -24,7 +25,10 @@ function RegistrationForm() {
   const [isSubmit, setIsSubmit] = useState(false)
 
   const navigate= useNavigate();
-
+  const navigateToLogin =() =>{
+    navigate("/login")
+  }
+  
   
 
 
@@ -51,46 +55,55 @@ function RegistrationForm() {
 
  
 
-  const validate = (name) => {
+  const validate = (value) => {
     const errors = {}
     const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/i;
-    if (!name.name) {
+    if (!value.name) {
       errors.name = "Resturant name is required";
     }
-     if(!name.email ){
+     if(!value.email ){
      errors.email= "Email is required";
     }
-    else  if (!name.email.includes('@') || !name.email.includes('.com')) {
+    else  if (!value.email.includes('@') || !value.email.includes('.com')) {
       errors.email ="Invalid email address"
      
     }
-    if(!name.password){
+    if(!value.password){
       errors.password= "Password is required";
      }
-     if(!name.mobileNumber){
+     if(!value.mobileNumber){
       errors.mobileNumber= "MobileNumber is required";
      }
-     if(!name.gender){
+     if(!value.gender){
       errors.gender= "Gender is required";
      }
-     if(!name.age){
+     if(!value.age){
       errors.age= "Age is required";
      }
-     if(!name.occupation){
+     if(!value.occupation){
       errors.occupation= "Occupation is required";
      }
-     if(!name.address){
+     if(!value.address){
       errors.address= "Address is required";
      }
 
 
-     localStorage.setItem('registrationData', JSON.stringify(inputs));
+      const data=localStorage.setItem('registrationData', JSON.stringify(inputs));
+     
+      navigateToLogin();
+     
+
+
 
      
      
 
     return errors;
-  }
+  };
+
+ 
+
+ 
 
   
 
@@ -105,10 +118,13 @@ function RegistrationForm() {
         boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px"
 
       }}>
+         <form
+        //  onSubmit={handleSubmit}
+         >
       <Box
 
       >
-         
+        
 
           <Typography
             sx={{
@@ -130,6 +146,7 @@ function RegistrationForm() {
             type="text"
             label="Name"
             name="name"
+
             value={inputs.name}
             onChange={handleChange}
 
@@ -147,7 +164,7 @@ function RegistrationForm() {
               width: "27ch",
               margin:"0px"
             }}
-            id="standard-basic"
+            // id="standard-basic"
             type="email"
             name="email"
             value={inputs.email}
@@ -258,15 +275,17 @@ function RegistrationForm() {
             }}
             // onClick={()=> navigate("/loginForm")}
             onClick={handleSubmit}
+            // onClick={() => { handleSubmit(); navigateToLogin(); }}
 
             variant="contained"
             
           >Register</Button>
-        
+         
 
-
+         
        
       </Box>
+      </form>
     </Box>
 
   )
