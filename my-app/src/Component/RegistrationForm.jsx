@@ -1,7 +1,7 @@
 
 
 import React from 'react'
-import { Box, TextField, Typography } from '@mui/material'
+import { Box, Button, TextField, Typography } from '@mui/material'
 import styles from './CSS/Registration.module.css'
 
 function RegistrationForm() {
@@ -16,86 +16,100 @@ function RegistrationForm() {
         marginTop: "70px"
 
       }}>
-        <Box
-       
-        >
+      <Box
 
-      <form>
+      >
 
-        <Typography
-          sx={{
-            padding: "10px"
-          }}
-          variant="h4"
-        >Registration Form
-        </Typography>
+        <form>
 
-        <TextField
-          sx={{
-            textAlign: "start",
-            width: "27ch",
-            margin:"10px"
+          <Typography
+            sx={{
+              padding: "10px"
+            }}
+            variant="h4"
+          >Registration Form
+          </Typography>
 
-          }}
-          id="standard-basic"
-          label="Name"
-          variant="standard" />
-        <br></br>
+          <TextField
+            sx={{
+              textAlign: "start",
+              width: "27ch",
+              margin: "10px"
 
-        <TextField
-          className={styles.textfield}
-          id="standard-basic"
-          label="Email Address"
-          variant="standard" />
-        <br></br>
-
-        <TextField
-          sx={{
-            width: "27ch",
-            margin:"10px"
-          }}
-          label="Password"
-          variant="standard" />
+            }}
+            id="standard-basic"
+            type="text"
+            label="Name"
+            variant="standard" />
           <br></br>
 
-        <TextField
-           className={styles.textfield}
-           type="number"
-          label="Mobile Number"
-          variant="standard" />
+          <TextField
+            className={styles.textfield}
+            id="standard-basic"
+            type="email"
+            label="Email Address"
+            variant="standard" />
           <br></br>
 
-        <TextField
+          <TextField
+            sx={{
+              width: "27ch",
+              margin: "10px"
+            }}
+            type="Password"
+            label="Password"
+            variant="standard" />
+          <br></br>
+
+          <TextField
+            className={styles.textfield}
+            type="number"
+            label="Mobile Number"
+            variant="standard" />
+          <br></br>
+
+          <TextField
+            sx={{
+              width: "27ch",
+              margin: "10px"
+            }}
+            type="number"
+            label="Age"
+            variant="standard" />
+          <br></br>
+
+          <TextField
+            className={styles.textfield}
+            type="text"
+            label="Address"
+            variant="standard" />
+          <br></br>
+
+          <TextField
+            sx={{
+              width: "27ch",
+              margin: "10px"
+            }}
+            label="Gender"
+            variant="standard" />
+          <br></br>
+
+          <TextField
+            className={styles.textfield}
+            label="Occupation"
+            variant="standard" />
+            <br></br>
+
+          <Button
           sx={{
-            width: "27ch",
-            margin:"10px"
+            marginTop:"30px",
+            width:"240px"
           }}
-          label="Age"
-          variant="standard" />
-          <br></br>
-
-        <TextField
-           className={styles.textfield}
-          label="Address"
-          variant="standard" />
-          <br></br>
-
-        <TextField
-          sx={{
-            width: "27ch",
-            margin:"10px"
-          }}
-          label="Gender"
-          variant="standard" />
-          <br></br>
-
-        <TextField
-          className={styles.textfield}
-          label="Occupation"
-          variant="standard" />
+            variant="contained"
+          >Register</Button>
 
 
-      </form>
+        </form>
       </Box>
     </Box>
 
